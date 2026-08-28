@@ -1,0 +1,17 @@
+# Microsoft AutoGen: use ``pyautogen`` only (provides ``import autogen``). The PyPI
+# package named ``autogen`` is unrelated and must not be pinned here.
+# Do not ``pip install tools`` — that PyPI package shadows the repo folder ``EhrAgent/tools/``.
+setuptools>=70
+wheel>=0.43
+jsonlines==3.1.0
+matplotlib>=3.8,<4
+numpy>=1.26,<3
+# pyautogen 0.4+ imports ``openai.lib._parsing``; keep in sync with pyautogen (not 1.7.x).
+openai>=1.55.0,<2
+pandas>=2.1.4,<3
+pyautogen>=0.2.0,<0.7
+python_Levenshtein==0.23.0
+seaborn==0.13.1
+termcolor==2.4.0
+tenacity>=8,<10
+wolframalpha==5.0.0

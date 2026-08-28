@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Secrets — never commit
+.env
+.aihubmix_env
+**/secrets*
+**/*api_key*
+
+# Run outputs
+artifacts/
+logs/
+logs_local_qwen/
+runs/
+runs_*/
+*.log
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+
+# Large optional caches (re-download locally)
+# WorldMM/.git/

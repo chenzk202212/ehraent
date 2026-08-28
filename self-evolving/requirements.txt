@@ -1,0 +1,2 @@
+# Harness packages only need a working EhrAgent env (API + autogen).
+# Prefer: /home/czk/EhrAgent/.venv or EhrAgent/ehragent/.env

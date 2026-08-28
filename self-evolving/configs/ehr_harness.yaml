@@ -1,0 +1,43 @@
+# Self-evolving EHR harness (frozen LLM; mutable scaffolding only)
+name: ehr_memory_harness
+llm: gpt-4o-mini
+
+# Outer-loop defaults
+evolve:
+  generations: 3
+  train_questions: 16
+  holdout_questions: 8
+  train_start: 0
+  holdout_start: 200
+  seed: 42
+  accept_min_holdout_delta: -1.0
+
+# Initial harness knobs (also stored in artifacts/*/harness.json after `init`)
+harness:
+  num_shots: 4
+  # Inner Memory Agent should keep LLM planning ON; outer meta-planner evolves harness.
+  planner_heuristic_only: false
+  compress_prompt: true
+  memory_agent: true
+  no_worldmm_context: false
+  ltm_disable: false
+  ltm_code_max_lines: 28
+  retrieval_budget:
+    task_pitfalls: 5
+    skills: 3
+    executable_traces: 2
+    recent_states: 3
+  constraint_overlays:
+    - "GENDER values are f/m not female/male."
+    - "Store final result in variable answer; end with TERMINATE when done."
+
+meta_planner:
+  enabled: true
+  # defaults to harness.llm when empty
+  model: ""
+  temperature: 0.2
+
+paths:
+  ehragent_root: /home/czk/EhrAgent
+  ehragent_data_root: /home/czk/EhrAgent/ehrsql-ehragent
+  artifacts: /home/czk/EnerVerse-AC/self-evolving/artifacts/ehr_default
